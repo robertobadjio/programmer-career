@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func main() {
@@ -10,6 +11,51 @@ func main() {
 	fmt.Printf("%s %t\n", x, bruteForce(x))
 	fmt.Printf("%s %t\n", x, hashMap(x))
 	fmt.Printf("%s %t\n", x, bitVector(x))
+
+	var a = "abbcdeac"
+	var b = "edcbbaac"
+
+	fmt.Printf("%t\n", permutationStringBruteForce(a, b))
+	fmt.Printf("%t\n", permutationSort(a, b))
+}
+
+// Use brute force
+// Time complexity O(n^2)
+// Spatial complexity O(1)
+func permutationStringBruteForce(a, b string) bool {
+	if len(a) != len(b) {
+		return false
+	}
+
+	for i := 0; i < len(a); i++ {
+		for j := 0; j < len(b); j++ {
+			if a[i] == b[j] {
+				b = strings.Replace(b, fmt.Sprintf("%c", a[i]), "", 1)
+				break
+			}
+		}
+	}
+
+	if b != "" {
+		return false
+	}
+
+	return true
+}
+
+func permutationSort(a,  b string) bool {
+	if len(a) != len(b) {
+		return false
+	}
+
+	// Sort a
+	// Sort b
+
+	if a == b {
+		return true
+	}
+
+	return false
 }
 
 // Use brute force

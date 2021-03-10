@@ -2,12 +2,7 @@ package main
 
 import (
 	"fmt"
-	"math"
-	"math/rand"
 	"programmerCareer/part1"
-	"strconv"
-	"strings"
-	"time"
 )
 
 func main() {
@@ -42,5 +37,5 @@ func main() {
 	var matrix = part1.GenerateRandomMatrix()
 	part1.PrintMatrix(matrix)
 	fmt.Println("")
-	part1.PrintMatrix(test(matrix))
+	part1.PrintMatrix(part1.Test(matrix))
 }

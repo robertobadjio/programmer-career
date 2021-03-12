@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"programmerCareer/part1"
+	"programmerCareer/part2"
 )
 
 func main() {
@@ -38,4 +39,9 @@ func main() {
 	part1.PrintMatrix(matrix)
 	fmt.Println("")
 	part1.PrintMatrix(part1.Test(matrix))
+
+	// 2.1.
+	fmt.Println("2.1.")
+	part2.RemoveDuplicateElement()
+	part2.RemoveDuplicateElementByHashMap()
 }

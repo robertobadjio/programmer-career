@@ -4,7 +4,7 @@ package part2
 // O(n)
 // O(1)
 func RemoveKElementOfEnd() {
-	l := generateList()
+	l := generateList(0)
 	printList(l)
 
 	var numToBeDeleted = 3
@@ -27,7 +27,7 @@ func RemoveKElementOfEnd() {
 // O(n)
 // O(1)
 func RemoveKElementOfEndN() {
-	l := generateList()
+	l := generateList(0)
 	printList(l)
 
 	var numToBeDeleted = 3
@@ -43,7 +43,7 @@ func RemoveKElementOfEndN() {
 }
 
 func RemoveKElementOfEndDoublePointer() {
-	l := generateList()
+	l := generateList(0)
 	printList(l)
 
 	for element := l.Front(); element != nil; element = element.Next() {

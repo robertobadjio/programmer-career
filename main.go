@@ -49,4 +49,9 @@ func main() {
 	// 2.2.
 	fmt.Println("2.2.")
 	part2.RemoveKElementOfEnd()
+
+	// 2.6.
+	fmt.Println("")
+	fmt.Println("2.2. Is palindrome?")
+	fmt.Printf("%t\n", part2.IsPalindrome())
 }

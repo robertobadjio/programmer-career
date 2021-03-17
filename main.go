@@ -44,4 +44,9 @@ func main() {
 	fmt.Println("2.1.")
 	part2.RemoveDuplicateElement()
 	part2.RemoveDuplicateElementByHashMap()
+	//part2.RemoveDuplicateElementsByDoublePointers() // Not working
+
+	// 2.2.
+	fmt.Println("2.2.")
+	part2.RemoveKElementOfEnd()
 }

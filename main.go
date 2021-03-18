@@ -7,13 +7,14 @@ import (
 )
 
 func main() {
-	// 1.1.
-	var x = "abbc"
-	fmt.Printf("%s %t\n", x, part1.BruteForce(x))
-	fmt.Printf("%s %t\n", x, part1.HashMap(x))
-	fmt.Printf("%s %t\n", x, part1.BitVector(x))
+	fmt.Println("1.1.")
+	var str = "bca"
+	fmt.Printf("%s %t\n", str, part1.BruteForce(str))
+	fmt.Printf("%s %t\n", str, part1.HashMap(str))
+	fmt.Printf("%s %t\n", str, part1.BitVector(str))
 
-	// 1.2.
+	fmt.Print("\n")
+	fmt.Print("1.2.\n")
 	var a = "abbcdeac"
 	var b = "edcbbaac"
 	fmt.Printf("%t\n", part1.PermutationStringBruteForce(a, b))

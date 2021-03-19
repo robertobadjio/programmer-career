@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"programmerCareer/part1"
 	"programmerCareer/part2"
+	"programmerCareer/part5"
 )
 
 func main() {
@@ -55,4 +56,8 @@ func main() {
 	fmt.Println("")
 	fmt.Println("2.2. Is palindrome?")
 	fmt.Printf("%t\n", part2.IsPalindrome())
+
+	// 5.3
+	fmt.Print("\n2.1. Determining max length sequence ones\n")
+	part5.DeterminingLengthLongestSequenceOnes()
 }

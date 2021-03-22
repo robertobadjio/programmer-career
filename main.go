@@ -57,7 +57,11 @@ func main() {
 	fmt.Println("2.2. Is palindrome?")
 	fmt.Printf("%t\n", part2.IsPalindrome())
 
-	// 5.3
-	fmt.Print("\n2.1. Determining max length sequence ones\n")
+	// 5.3.
+	fmt.Print("\n5.3. Determining max length sequence ones\n")
 	part5.DeterminingLengthLongestSequenceOnes()
+
+	// 5.4.
+	fmt.Print("\n5.4. Determining nearest numbers\n")
+	part5.DeterminingNearestNumbers()
 }

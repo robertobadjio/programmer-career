@@ -64,4 +64,8 @@ func main() {
 	// 5.4.
 	fmt.Print("\n5.4. Determining nearest numbers\n")
 	part5.DeterminingNearestNumbers()
+
+	// 5.6.
+	fmt.Print("\n5.6.\n")
+	part5.NumberOfDistinctBits()
 }

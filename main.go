@@ -57,6 +57,10 @@ func main() {
 	fmt.Println("2.2. Is palindrome?")
 	fmt.Printf("%t\n", part2.IsPalindrome())
 
+	// 5.2.
+	fmt.Print("\n5.2.\n")
+	part5.RealNumber()
+
 	// 5.3.
 	fmt.Print("\n5.3. Determining max length sequence ones\n")
 	part5.DeterminingLengthLongestSequenceOnes()
@@ -68,4 +72,12 @@ func main() {
 	// 5.6.
 	fmt.Print("\n5.6.\n")
 	part5.NumberOfDistinctBits()
+
+	// Test
+	//fmt.Print("\nTest\n")
+	//InversionBits(802743475)
+}
+
+func InversionBits(num int64) {
+	fmt.Printf("%d\n%08b\n%08b\n%d\n", num, num, (^num) + (1 << 32))
 }

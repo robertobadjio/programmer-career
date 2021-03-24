@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"programmerCareer/part1"
 	"programmerCareer/part2"
+	"programmerCareer/part4"
 	"programmerCareer/part5"
 )
 
@@ -57,6 +58,10 @@ func main() {
 	fmt.Println("2.2. Is palindrome?")
 	fmt.Printf("%t\n", part2.IsPalindrome())
 
+	// 4.1.
+	fmt.Print("\n4.1.\n")
+	part4.ExistsRoute()
+
 	// 5.2.
 	fmt.Print("\n5.2.\n")
 	part5.RealNumber()
@@ -79,5 +84,5 @@ func main() {
 }
 
 func InversionBits(num int64) {
-	fmt.Printf("%d\n%08b\n%08b\n%d\n", num, num, (^num) + (1 << 32))
+	fmt.Printf("%d\n%08b\n%08b\n%d\n", num, num, (^num)+(1<<32))
 }

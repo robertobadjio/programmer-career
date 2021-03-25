@@ -1,10 +1,14 @@
 package part4
 
-import "fmt"
+import (
+	"fmt"
+	"programmerCareer/part4/graph"
+)
 
 // Сложность по времени O(|V|+|E|)
+// TODO: По памяти?
 func ExistsRoute() {
-	graph := New()
+	graph := part4_graph.New()
 	node0 := graph.AddNode()
 	node1 := graph.AddNode()
 	node2 := graph.AddNode()
@@ -23,7 +27,7 @@ func ExistsRoute() {
 
 // visited — Массив цветов вершин
 // t — Конечная вершина
-func search(u, t int, visited [10]bool, graph *Graph) bool {
+func search(u, t int, visited [10]bool, graph *part4_graph.Graph) bool {
 	if u == t {
 		return true
 	}

@@ -1,4 +1,4 @@
-package part4
+package part4_graph
 
 // Graph : represents a Graph
 type Graph struct {

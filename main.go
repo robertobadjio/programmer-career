@@ -62,6 +62,10 @@ func main() {
 	fmt.Print("\n4.1.\n")
 	part4.ExistsRoute()
 
+	// 4.2.
+	fmt.Print("\n4.2.\n")
+	part4.BinarySearchTree()
+
 	// 5.2.
 	fmt.Print("\n5.2.\n")
 	part5.RealNumber()

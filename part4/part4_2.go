@@ -7,29 +7,26 @@ import (
 func BinarySearchTree() {
  	var arr = initSliceWithUniqueElements()
 
-	node := part4_binary_tree.New(arr[0])
-	for i := 1; i < len(arr); i++ {
-		node = insertSearch(node, arr[i])
-	}
-
+ 	node := createBalancedTree(arr, 0, len(arr) - 1)
 	node.Traverse()
 }
 
-// InsertSearch : adds a node to the search tree
-func insertSearch(t *part4_binary_tree.Node, data int) *part4_binary_tree.Node {
-	if t == nil {
-		return part4_binary_tree.New(data)
-	} else if data < t.Data {
-		t.Left = insertSearch(t.Left, data)
-	} else if data > t.Data {
-		t.Right = insertSearch(t.Right, data)
+func createBalancedTree(arr [9]int, start, end int) *part4_binary_tree.Node {
+	if end < start {
+		return nil
 	}
+	middle := (start + end) / 2
 
-	return t
+	node := part4_binary_tree.New(arr[middle])
+
+	node.Left = createBalancedTree(arr, start, middle - 1)
+	node.Right = createBalancedTree(arr, middle + 1, end)
+
+	return node
 }
 
-func initSliceWithUniqueElements() [6]int {
-	arr := [6]int{2, 4, 6, 8, 10, 20}
+func initSliceWithUniqueElements() [9]int {
+	arr := [9]int{1, 3, 4, 6, 7, 8, 10, 14, 13}
 	//rand.Seed(time.Now().UnixNano())
 	//for i := 0; i < 10; i++ {
 		//arr[i] = rand.Intn(10

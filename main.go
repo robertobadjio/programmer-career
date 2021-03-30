@@ -6,6 +6,7 @@ import (
 	"programmerCareer/part2"
 	"programmerCareer/part4"
 	"programmerCareer/part5"
+	"programmerCareer/part8"
 )
 
 func main() {
@@ -85,6 +86,8 @@ func main() {
 	// Test
 	//fmt.Print("\nTest\n")
 	//InversionBits(802743475)
+
+	part8.BubbleSort()
 }
 
 func InversionBits(num int64) {

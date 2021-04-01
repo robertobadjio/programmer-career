@@ -29,7 +29,7 @@ func HashMap(x string) bool {
 }
 
 // Временная сложность O(n)
-// Пространственная сложность O(n)
+// Пространственная сложность O(1)
 func BitVector(str string) bool {
 	type IntSet struct {
 		words []uint

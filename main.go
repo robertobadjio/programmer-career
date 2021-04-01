@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"programmerCareer/other"
 	"programmerCareer/part1"
 	"programmerCareer/part2"
 	"programmerCareer/part4"
@@ -88,6 +89,10 @@ func main() {
 	//InversionBits(802743475)
 
 	part8.BubbleSort()
+
+	// Other
+	fmt.Print("\nOther. BubbleZero\n")
+	other.BubbleZero()
 }
 
 func InversionBits(num int64) {

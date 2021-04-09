@@ -2,12 +2,14 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"programmerCareer/other"
 	"programmerCareer/part1"
 	"programmerCareer/part2"
 	"programmerCareer/part4"
 	"programmerCareer/part5"
 	"programmerCareer/part8"
+	"regexp"
 )
 
 func main() {
@@ -93,8 +95,93 @@ func main() {
 	// Other
 	fmt.Print("\nOther. BubbleZero\n")
 	other.BubbleZero()
+
+	// Hackerrank
+	fmt.Print("\nHackerrank. Encryption\n")
+	fmt.Println(Encryption())
+	fmt.Print("\nHackerrank. Encryption2\n")
+	fmt.Println(EncryptionSlowFastPointer())
 }
 
 func InversionBits(num int64) {
-	fmt.Printf("%d\n%08b\n%08b\n%d\n", num, num, (^num)+(1<<32))
+	fmt.Println("%d\n%08b\n%08b\n%d\n", num, num, (^num)+(1<<32))
+}
+
+// Encryption https://www.hackerrank.com/challenges/encryption/problem
+// Сложность алгоритмическая O(n^2)
+// Сложность пространственная O(n)
+func Encryption() string {
+	//var s = "have a nice day"
+	//var s = "chill out"
+	var s = "iffactsdontfittotheorychangethefacts"
+
+	r := regexp.MustCompile("\\s+")
+	s = r.ReplaceAllString(s, "")
+
+	rootSquare := math.Sqrt(float64(len(s)))
+	rows := int(math.Floor(rootSquare))
+	columns := int(math.Ceil(rootSquare))
+
+	for rows * columns < len(s) {
+		rows++
+	}
+
+	array := make([][]string, rows)
+	j := 0
+	k := 0
+	array[j] = make([]string, columns)
+	for i := 0; i < len(s); i++ {
+		array[j][k] = fmt.Sprintf("%c", s[i])
+		k++
+		if (i+1)%columns == 0 {
+			j++
+			k = 0
+			if j >= rows {
+				break
+			}
+			array[j] = make([]string, columns)
+		}
+	}
+
+	output := ""
+	for i := 0; i < columns; i++ {
+		for j = 0; j < rows; j++ {
+			output += array[j][i]
+		}
+		output += " "
+	}
+
+	return output
+}
+
+// EncryptionSlowFastPointer https://www.hackerrank.com/challenges/encryption/problem
+// Сложность алгоритмическая O(n)
+// Сложность пространственная O(n)
+func EncryptionSlowFastPointer() string {
+	var s = "have a nice day"
+
+	r := regexp.MustCompile("\\s+")
+	s = r.ReplaceAllString(s, "")
+
+	rootSquare := math.Sqrt(float64(len(s)))
+	rows := int(math.Floor(rootSquare))
+	columns := int(math.Ceil(rootSquare))
+
+	for rows * columns < len(s) {
+		rows++
+	}
+
+	output := ""
+	for i := 0; i < columns; i++ {
+		output += fmt.Sprintf("%c", s[i])
+		j := i
+		for j + columns < len(s) {
+			output += fmt.Sprintf("%c", s[j + columns])
+			j += columns
+		}
+
+		output += " "
+	}
+
+	return output
 }

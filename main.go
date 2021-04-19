@@ -101,6 +101,46 @@ func main() {
 	fmt.Println(Encryption())
 	fmt.Print("\nHackerrank. Encryption2\n")
 	fmt.Println(EncryptionSlowFastPointer())
+
+	fmt.Print("\nHackerrank. Forming a magic square\n")
+	fmt.Println(FormingMagicSquare())
+}
+
+// FormingMagicSquare https://www.hackerrank.com/challenges/magic-square-forming/problem
+// Сложность алгоритмическая O(n)
+// Сложность пространственная O(1)
+func FormingMagicSquare() int32 {
+	//matrix := [3][3]int32{{4, 5, 8}, {2, 4, 1}, {1, 9, 7}} // 14
+	//matrix := [3][3]int32{{2, 9, 8}, {4, 2, 7}, {5, 6, 7}} // 21
+	//matrix := [3][3]int32{{7, 2, 9}, {6, 6, 7}, {5, 1, 2}} // 19
+	//matrix := [3][3]int32{{4, 4, 7}, {3, 1, 5}, {1, 7, 9}} // 20
+	//matrix := [3][3]int32{{2, 2, 7}, {8, 6, 4}, {1, 2, 9}} // 16
+	matrix := [3][3]int32{{2, 5, 4}, {4, 6, 9}, {4, 5, 2}} // 16
+	possibleMagicSquares := [][]int32{
+		{4,9,2,3,5,7,8,1,6},
+		{4,3,8,9,5,1,2,7,6},
+		{2,9,4,7,5,3,6,1,8},
+		{2,7,6,9,5,1,4,3,8},
+		{8,1,6,3,5,7,4,9,2},
+		{8,3,4,1,5,9,6,7,2},
+		{6,7,2,1,5,9,8,3,4},
+		{6,1,8,7,5,3,2,9,4},
+	}
+
+	cost := int32(81)
+	temp := int32(0)
+	for i := 0; i < 8; i++ {
+		temp = int32(math.Abs(float64(matrix[0][0] - possibleMagicSquares[i][0])) + math.Abs(float64(matrix[0][1] - possibleMagicSquares[i][1])) +
+			math.Abs(float64(matrix[0][2] - possibleMagicSquares[i][2])) + math.Abs(float64(matrix[1][0] - possibleMagicSquares[i][3])) +
+			math.Abs(float64(matrix[1][1] - possibleMagicSquares[i][4])) + math.Abs(float64(matrix[1][2] - possibleMagicSquares[i][5])) +
+			math.Abs(float64(matrix[2][0] - possibleMagicSquares[i][6])) + math.Abs(float64(matrix[2][1] - possibleMagicSquares[i][7])) +
+			math.Abs(float64(matrix[2][2] - possibleMagicSquares[i][8])))
+		if temp < cost {
+			cost = temp
+		}
+	}
+
+	return cost
 }
 
 func InversionBits(num int64) {
@@ -122,7 +162,7 @@ func Encryption() string {
 	rows := int(math.Floor(rootSquare))
 	columns := int(math.Ceil(rootSquare))
 
-	for rows * columns < len(s) {
+	for rows*columns < len(s) {
 		rows++
 	}
 
@@ -167,7 +207,7 @@ func EncryptionSlowFastPointer() string {
 	rows := int(math.Floor(rootSquare))
 	columns := int(math.Ceil(rootSquare))
 
-	for rows * columns < len(s) {
+	for rows*columns < len(s) {
 		rows++
 	}
 
@@ -175,8 +215,8 @@ func EncryptionSlowFastPointer() string {
 	for i := 0; i < columns; i++ {
 		output += fmt.Sprintf("%c", s[i])
 		j := i
-		for j + columns < len(s) {
-			output += fmt.Sprintf("%c", s[j + columns])
+		for j+columns < len(s) {
+			output += fmt.Sprintf("%c", s[j+columns])
 			j += columns
 		}
 
